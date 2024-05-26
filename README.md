@@ -1,21 +1,18 @@
-# myproj
+# config
 
-> A Vue.js project
+> Learning Vue-element-admin
 
-## Build Setup
+## deps
+node@16.5.0
 
-``` bash
-# install dependencies
-npm install
+npm@6.14.18
 
-# serve with hot reload at localhost:8080
-npm run dev
+axios@1.5.0 //其他版本似乎与i18n冲突
 
-# build for production with minification
-npm run build
+mockjs
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+js-cookie
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+element-ui
+
+vue-i18n

@@ -6,25 +6,41 @@
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span slot="title">系统管理</span>
+          <span slot="title">{{ $t("sys.sysMng") }}</span>
         </template>
-        <el-menu-item index="1-1" @click="$router.push('user')">用户管理</el-menu-item>
-        <el-menu-item index="1-2" @click="$router.push('menu')">菜单管理</el-menu-item>
-        <el-menu-item index="1-3">选项3</el-menu-item>
+        <el-menu-item index="1-1" @click="$router.push('user')">{{ $t("sys.userMng") }}</el-menu-item>
+        <el-menu-item index="1-2" @click="$router.push('menu')">{{ $t("sys.menuMng") }}</el-menu-item>
       </el-submenu>
       <el-menu-item index="2">
         <i class="el-icon-menu"></i>
-        <span slot="title">导航二</span>
+        <span slot="title">{{ $t("sys.deptMng") }}</span>
       </el-menu-item>
       <el-menu-item index="3" disabled>
         <i class="el-icon-document"></i>
-        <span slot="title">导航三</span>
+        <span slot="title">{{ $t("sys.roleMng") }}</span>
       </el-menu-item>
       <el-menu-item index="4">
         <i class="el-icon-setting"></i>
-        <span slot="title">导航四</span>
+        <span slot="title">{{ $t("sys.logMng") }}</span>
+      </el-menu-item>
+
+      <!-- 切换语言 -->
+      <el-menu-item index="4">
+        <el-dropdown trigger="click" @command="handleCommand">
+          <span>
+            <i class="el-icon-location-outline"></i>
+            {{ $t("common.changeLanguage") }}
+            <i class="el-icon-arrow-down"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="zh">中文</el-dropdown-item>
+            <el-dropdown-item command="en">English</el-dropdown-item>
+
+          </el-dropdown-menu>
+        </el-dropdown>
       </el-menu-item>
     </el-menu>
+
 
     <section class="content-container">
       <div class="grid-content bg-purple-light">
@@ -48,13 +64,15 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 
 export default {
   name: 'Home',
   methods: {
     logout() { },
+    handleCommand(command) {
+      let lang = command
+      this.$i18n.locale = lang
+    }
   }
 
 }

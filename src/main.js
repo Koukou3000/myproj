@@ -11,12 +11,15 @@ import api from './http'
 import mock from '@/mock'
 Vue.use(ElementUI)
 Vue.use(api)
-Vue.config.productionTip = false
 
+import i18n from './i18n'
+
+Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  i18n,
   components: { App },
   template: '<App/>'
 })
