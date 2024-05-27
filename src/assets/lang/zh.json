@@ -3,7 +3,12 @@
     "changeLanguage": "切换语言",
     "home": "首页",
     "login": "登录",
-    "exit": "退出"
+    "logout": "退出登录",
+    "doc": "帮助文档",
+    "msgCenter": "消息中心",
+    "myMsg": "我的消息",
+    "config": "设置"
+   
   },
   "sys": {
     "sysMng": "系统管理",
@@ -11,6 +16,9 @@
     "deptMng": "机构管理",
     "roleMng": "角色管理",
     "menuMng": "菜单管理",
-    "logMng": "日志管理"
+    "logMng": "日志管理",
+    "sysMonitor": "系统大屏",
+    "nav3": "导航3",
+    "nv4": "导航4"
   }
 }
