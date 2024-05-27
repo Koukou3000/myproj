@@ -13,13 +13,14 @@ Vue.use(ElementUI)
 Vue.use(api)
 
 import i18n from './i18n'
-
+import store from './store'
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   i18n,
+  store,
   components: { App },
   template: '<App/>'
 })

@@ -4,6 +4,7 @@
     <span class="collapse-switcher" @click.prevent="collapse">
       <i class="el-icon-menu"></i>
     </span>
+    <span v-if="this.$store.state.collapse">hello</span>
     <!-- 导航菜单 -->
     <span class="nav-bar">
       <el-menu :default-active="activeIndex" class="el-menu-demo" text-color="#fff" active-text-color="#ffd04b"
@@ -57,7 +58,7 @@ export default {
     },
     //折叠导航栏
     collapse: function () {
-      this.isCollapse = !this.isCollapse;
+      this.$store.commit('collapse')
     },
     //退出登录
     logout: function () {
@@ -80,6 +81,7 @@ export default {
       this.userName = user;
       // this.userAvatar = require("@/assets/logo.png");
     }
+   
   }
 };
 </script>
