@@ -1,8 +1,11 @@
 <template>
   <div class="container" :class="$store.state.app.collapse ? 'menu-bar-collapse-width' : 'menu-bar-width'">
     <!-- 导航菜单隐藏显示切换 -->
-    <span class="collapse-switcher" @click.prevent="collapse">
-      <i class="el-icon-menu"></i>
+    <span class="collapse-switcher">
+      <Hamburger :toggleClick="collapse" :isActive="$store.state.app.collapse"></Hamburger>
+    </span>
+    <span>
+
     </span>
     <!-- 导航菜单 -->
     <span class="nav-bar">
@@ -31,9 +34,11 @@
 
 <script>
 import LangSelector from "@/components/LangSelector"
+import Hamburger from '@/components/Hamburger'
 export default {
   components: {
-    LangSelector
+    LangSelector,
+    Hamburger
   },
   data() {
     return {
