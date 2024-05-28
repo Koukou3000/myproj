@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" :class="$store.state.collapse? 'menu-bar-collapse-width' : 'menu-bar-width'">
     <el-breadcrumb separator="/" class="breadcrumb">
       <el-breadcrumb-item v-for="item in $route.matched" :key="item.path">
         {{ item.name }}
@@ -43,5 +43,11 @@ export default {
   border-bottom-width: 1px;
   border-bottom-style: solid;
   background: rgba(138, 158, 170, 0.2);
+}
+.menu-bar-collapse-width{
+  left: 65px;
+}
+.menu-bar-width{
+  left: 200px;
 }
 </style>

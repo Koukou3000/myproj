@@ -1,13 +1,13 @@
 <template>
   <div class="menu-bar-container">
     <!-- logo -->
-    <div class="logo" :class="isCollapse ? 'menu-bar-collapse-width' : 'menu-bar-width'">
+    <div class="logo" :class="$store.state.collapse ? 'menu-bar-collapse-width' : 'menu-bar-width'">
       <img :src="this.logo" />
-      <div>{{ isCollapse ? '' : sysName }}</div>
+      <div>{{ $store.state.collapse ? '' : sysName }}</div>
     </div>
     <!-- 导航菜单 -->
-    <el-menu default-active="1-1" :class="isCollapse ? 'menu-bar-collapse-width' : 'menu-bar-width'" @open="handleopen"
-      @close="handleclose" @select="handleselect" :collapse="isCollapse">
+    <el-menu default-active="1-1" :class="$store.state.collapse ? 'menu-bar-collapse-width' : 'menu-bar-width'" @open="handleopen"
+      @close="handleclose" @select="handleselect" :collapse="$store.state.collapse">
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
@@ -41,7 +41,6 @@
 export default {
   data() {
     return {
-      isCollapse: false,
       sysName: "",
       logo: "",
     };

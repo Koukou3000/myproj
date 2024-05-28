@@ -1,10 +1,9 @@
 <template>
-  <div class="container">
+  <div class="container" :class="$store.state.collapse ? 'menu-bar-collapse-width' : 'menu-bar-width'">
     <!-- 导航菜单隐藏显示切换 -->
     <span class="collapse-switcher" @click.prevent="collapse">
       <i class="el-icon-menu"></i>
     </span>
-    <span v-if="this.$store.state.collapse">hello</span>
     <!-- 导航菜单 -->
     <span class="nav-bar">
       <el-menu :default-active="activeIndex" class="el-menu-demo" text-color="#fff" active-text-color="#ffd04b"
@@ -81,7 +80,7 @@ export default {
       this.userName = user;
       // this.userAvatar = require("@/assets/logo.png");
     }
-   
+
   }
 };
 </script>
@@ -152,5 +151,13 @@ img {
   border-radius: 10px;
   margin: 10px 0px 10px 10px;
   float: right;
+}
+
+.menu-bar-collapse-width {
+  left: 65px;
+}
+
+menu-bar-width {
+  left: 200px;
 }
 </style>
