@@ -1,8 +1,8 @@
 <template>
   <div class="container" :class="$store.state.app.collapse ? 'menu-bar-collapse-width' : 'menu-bar-width'">
     <!-- 导航菜单隐藏显示切换 -->
-    <span class="collapse-switcher">
-      <Hamburger :toggleClick="collapse" :isActive="$store.state.app.collapse"></Hamburger>
+    <span class="collapse-switcher" @click="collapse">
+      <Hamburger :isActive="$store.state.app.collapse"></Hamburger>
     </span>
     <span>
 
