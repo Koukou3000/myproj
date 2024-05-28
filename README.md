@@ -1,6 +1,6 @@
 # config
 
-> Learning Vue-element-admin
+> Learning Vue-element-admin (Vue2.js)
 
 ## deps
 node@16.5.0
@@ -16,3 +16,5 @@ js-cookie
 element-ui
 
 vue-i18n
+
+vuex@3
