@@ -45,14 +45,16 @@ router.beforeEach((to, from, next) => {
   if (to.path == '/login') {
     if (isLogin) {
       next({ path: '/' })
-    } else {
+    }
+    else {
       next()
     }
   }
   else {
     if (!isLogin) {
       next({ path: '/login' })
-    } else {
+    }
+    else {
       addDynamicMenuAndRoutes()
       next()
     }
@@ -66,18 +68,25 @@ function addDynamicMenuAndRoutes() {
     console.log('动态路由已经加载')
     return
   }
-  
+
   api.menu.findMenuTree()
     .then((res) => {
       // 返回的数据用于MenuBar
       store.commit('setMenuTree', res.data)
       // 返回的数据用于VueRouter，将数据调整为需要的格式（路由不需要递归）
       let dynamicRoutes = addDynamicRoutes(res.data) // 添加动态路由
-      router.options.routes[0].children = router.options.routes[0].children.concat(dynamicRoutes)
-      router.addRoutes(router.options.routes);
-
+      
+      // addRoutes被舍弃
+      // router.options.routes[0].children = router.options.routes[0].children.concat(dynamicRoutes)
+      // router.addRoutes(router.options.routes);
+      for (let i = 0; i < dynamicRoutes.length; i++){
+        let routeRecordName = '首页' // 添加路由所处的父结点名称
+        let routeRecordNew = dynamicRoutes[i]
+        router.addRoute(routeRecordName, routeRecordNew)
+      }
+ 
       // 更新菜单、路由的加载状态
-      store.commit('menuRouteLoaded', true) 
+      store.commit('menuRouteLoaded', true)
     })
     .catch(function (res) {
       alert(res);
@@ -97,7 +106,6 @@ function addDynamicRoutes(menuList = [], routes = []) {
     }
     // 没有子结点，将该项处理成route后push到routes（路由不需要递归）
     else if (/\S/.test(menuList[i].url)) {
-      // menuList[i].url = menuList[i].url.replace(/^\//, '') // 如果是开头带斜杠的，调整，'/menu' => 'menu'
       // 创建路由配置
       var route = {
         path: menuList[i].url,
@@ -109,7 +117,7 @@ function addDynamicRoutes(menuList = [], routes = []) {
           isDynamic: true,
           isTab: true,
           iframeUrl: ''
-        }
+        },
       }
       // url以http[s]://开头, 通过iframe展示
       if (isURL(menuList[i].url)) {
@@ -138,6 +146,10 @@ function addDynamicRoutes(menuList = [], routes = []) {
   }
   return routes
 }
+
+
+
+
 
 
 export default router
