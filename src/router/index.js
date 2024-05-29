@@ -68,6 +68,8 @@ function addDynamicMenuAndRoutes() {
     console.log('动态路由已经加载')
     return
   }
+  // 上锁，更新菜单、路由的加载状态
+  store.commit('menuRouteLoaded', true)
 
   api.menu.findMenuTree()
     .then((res) => {
@@ -75,21 +77,19 @@ function addDynamicMenuAndRoutes() {
       store.commit('setMenuTree', res.data)
       // 返回的数据用于VueRouter，将数据调整为需要的格式（路由不需要递归）
       let dynamicRoutes = addDynamicRoutes(res.data) // 添加动态路由
-      
+
       // addRoutes被舍弃
       // router.options.routes[0].children = router.options.routes[0].children.concat(dynamicRoutes)
       // router.addRoutes(router.options.routes);
-      for (let i = 0; i < dynamicRoutes.length; i++){
+      for (let i = 0; i < dynamicRoutes.length; i++) {
         let routeRecordName = '首页' // 添加路由所处的父结点名称
         let routeRecordNew = dynamicRoutes[i]
         router.addRoute(routeRecordName, routeRecordNew)
       }
- 
-      // 更新菜单、路由的加载状态
-      store.commit('menuRouteLoaded', true)
     })
     .catch(function (res) {
       alert(res);
+      store.commit('menuRouteLoaded', true) // 失败了，解锁
     });
 }
 /**
