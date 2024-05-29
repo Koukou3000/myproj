@@ -62,6 +62,11 @@ router.beforeEach((to, from, next) => {
 * 加载动态菜单和路由
 */
 function addDynamicMenuAndRoutes() {
+  if (store.state.menu.menuRouteLoaded) {
+    console.log('动态路由已经加载')
+    return
+  }
+  
   api.menu.findMenuTree()
     .then((res) => {
       // 返回的数据用于MenuBar
@@ -70,6 +75,9 @@ function addDynamicMenuAndRoutes() {
       let dynamicRoutes = addDynamicRoutes(res.data) // 添加动态路由
       router.options.routes[0].children = router.options.routes[0].children.concat(dynamicRoutes)
       router.addRoutes(router.options.routes);
+
+      // 更新菜单、路由的加载状态
+      store.commit('menuRouteLoaded', true) 
     })
     .catch(function (res) {
       alert(res);
