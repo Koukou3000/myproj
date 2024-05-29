@@ -25,7 +25,7 @@ function fnCreate(mod, isOpen = true) {
           opts['data'] = opts.body ? JSON.parse(opts.body) : null
           delete opts.body
 
-          console.log('\n')
+          console.log('mock is strangling request\n')
           console.log('%cmock拦截, 请求: ', 'color:green', opts)
           console.log('%cmock拦截, 响应: ', 'color:yellow', res.data)
           return res.data

@@ -1,4 +1,5 @@
 // 获取菜单信息
+
 export function findTree() {
   return {
     url: 'http://localhost:8080/menu/findTree',
@@ -14,7 +15,7 @@ export function findTree() {
           "url": null,
           "perms": null,
           "type": 0,
-          "icon": "fa el-icon-setting",
+          "icon": "el-icon-setting",
           "orderNum": 0,
           "createBy": null,
           "createTime": null,
@@ -36,72 +37,7 @@ export function findTree() {
               "lastUpdateBy": null,
               "lastUpdateTime": null,
               "delFlag": 0,
-              "children": [
-                {
-                  "menuId": 9,
-                  "parentId": 2,
-                  "name": "查看",
-                  "url": null,
-                  "perms": "sys:user:view",
-                  "type": 2,
-                  "icon": null,
-                  "orderNum": 0,
-                  "createBy": null,
-                  "createTime": null,
-                  "lastUpdateBy": null,
-                  "lastUpdateTime": null,
-                  "delFlag": 0,
-                  "children": []
-                },
-                {
-                  "menuId": 10,
-                  "parentId": 2,
-                  "name": "新增",
-                  "url": null,
-                  "perms": "sys:user:save",
-                  "type": 2,
-                  "icon": null,
-                  "orderNum": 0,
-                  "createBy": null,
-                  "createTime": null,
-                  "lastUpdateBy": null,
-                  "lastUpdateTime": null,
-                  "delFlag": 0,
-                  "children": []
-                },
-                {
-                  "menuId": 11,
-                  "parentId": 2,
-                  "name": "修改",
-                  "url": null,
-                  "perms": "sys:user:update",
-                  "type": 2,
-                  "icon": null,
-                  "orderNum": 0,
-                  "createBy": null,
-                  "createTime": null,
-                  "lastUpdateBy": null,
-                  "lastUpdateTime": null,
-                  "delFlag": 0,
-                  "children": []
-                },
-                {
-                  "menuId": 12,
-                  "parentId": 2,
-                  "name": "删除",
-                  "url": null,
-                  "perms": "sys:user:delete",
-                  "type": 2,
-                  "icon": null,
-                  "orderNum": 0,
-                  "createBy": null,
-                  "createTime": null,
-                  "lastUpdateBy": null,
-                  "lastUpdateTime": null,
-                  "delFlag": 0,
-                  "children": []
-                }
-              ]
+
             },
             {
               "menuId": 3,
@@ -117,72 +53,7 @@ export function findTree() {
               "lastUpdateBy": null,
               "lastUpdateTime": null,
               "delFlag": 0,
-              "children": [
-                {
-                  "menuId": 13,
-                  "parentId": 3,
-                  "name": "查看",
-                  "url": null,
-                  "perms": "sys:dept:view",
-                  "type": 2,
-                  "icon": null,
-                  "orderNum": 0,
-                  "createBy": null,
-                  "createTime": null,
-                  "lastUpdateBy": null,
-                  "lastUpdateTime": null,
-                  "delFlag": 0,
-                  "children": []
-                },
-                {
-                  "menuId": 14,
-                  "parentId": 3,
-                  "name": "新增",
-                  "url": null,
-                  "perms": "sys:dept:save",
-                  "type": 2,
-                  "icon": null,
-                  "orderNum": 0,
-                  "createBy": null,
-                  "createTime": null,
-                  "lastUpdateBy": null,
-                  "lastUpdateTime": null,
-                  "delFlag": 0,
-                  "children": []
-                },
-                {
-                  "menuId": 15,
-                  "parentId": 3,
-                  "name": "修改",
-                  "url": null,
-                  "perms": "sys:dept:update",
-                  "type": 2,
-                  "icon": null,
-                  "orderNum": 0,
-                  "createBy": null,
-                  "createTime": null,
-                  "lastUpdateBy": null,
-                  "lastUpdateTime": null,
-                  "delFlag": 0,
-                  "children": []
-                },
-                {
-                  "menuId": 16,
-                  "parentId": 3,
-                  "name": "删除",
-                  "url": null,
-                  "perms": "sys:dept:delete",
-                  "type": 2,
-                  "icon": null,
-                  "orderNum": 0,
-                  "createBy": null,
-                  "createTime": null,
-                  "lastUpdateBy": null,
-                  "lastUpdateTime": null,
-                  "delFlag": 0,
-                  "children": []
-                }
-              ]
+
             },
             {
               "menuId": 4,
@@ -198,72 +69,7 @@ export function findTree() {
               "lastUpdateBy": null,
               "lastUpdateTime": null,
               "delFlag": 0,
-              "children": [
-                {
-                  "menuId": 17,
-                  "parentId": 4,
-                  "name": "查看",
-                  "url": null,
-                  "perms": "sys:role:view",
-                  "type": 2,
-                  "icon": null,
-                  "orderNum": 0,
-                  "createBy": null,
-                  "createTime": null,
-                  "lastUpdateBy": null,
-                  "lastUpdateTime": null,
-                  "delFlag": 0,
-                  "children": []
-                },
-                {
-                  "menuId": 18,
-                  "parentId": 4,
-                  "name": "新增",
-                  "url": null,
-                  "perms": "sys:role:save",
-                  "type": 2,
-                  "icon": null,
-                  "orderNum": 0,
-                  "createBy": null,
-                  "createTime": null,
-                  "lastUpdateBy": null,
-                  "lastUpdateTime": null,
-                  "delFlag": 0,
-                  "children": []
-                },
-                {
-                  "menuId": 19,
-                  "parentId": 4,
-                  "name": "修改",
-                  "url": null,
-                  "perms": "sys:role:update",
-                  "type": 2,
-                  "icon": null,
-                  "orderNum": 0,
-                  "createBy": null,
-                  "createTime": null,
-                  "lastUpdateBy": null,
-                  "lastUpdateTime": null,
-                  "delFlag": 0,
-                  "children": []
-                },
-                {
-                  "menuId": 20,
-                  "parentId": 4,
-                  "name": "删除",
-                  "url": null,
-                  "perms": "sys:role:delete",
-                  "type": 2,
-                  "icon": null,
-                  "orderNum": 0,
-                  "createBy": null,
-                  "createTime": null,
-                  "lastUpdateBy": null,
-                  "lastUpdateTime": null,
-                  "delFlag": 0,
-                  "children": []
-                }
-              ]
+
             },
             {
               "menuId": 5,
@@ -279,72 +85,7 @@ export function findTree() {
               "lastUpdateBy": null,
               "lastUpdateTime": null,
               "delFlag": 0,
-              "children": [
-                {
-                  "menuId": 21,
-                  "parentId": 5,
-                  "name": "查看",
-                  "url": null,
-                  "perms": "sys:menu:view",
-                  "type": 2,
-                  "icon": null,
-                  "orderNum": 0,
-                  "createBy": null,
-                  "createTime": null,
-                  "lastUpdateBy": null,
-                  "lastUpdateTime": null,
-                  "delFlag": 0,
-                  "children": []
-                },
-                {
-                  "menuId": 22,
-                  "parentId": 5,
-                  "name": "新增",
-                  "url": null,
-                  "perms": "sys:menu:save",
-                  "type": 2,
-                  "icon": null,
-                  "orderNum": 0,
-                  "createBy": null,
-                  "createTime": null,
-                  "lastUpdateBy": null,
-                  "lastUpdateTime": null,
-                  "delFlag": 0,
-                  "children": []
-                },
-                {
-                  "menuId": 23,
-                  "parentId": 5,
-                  "name": "修改",
-                  "url": null,
-                  "perms": "sys:menu:update",
-                  "type": 2,
-                  "icon": null,
-                  "orderNum": 0,
-                  "createBy": null,
-                  "createTime": null,
-                  "lastUpdateBy": null,
-                  "lastUpdateTime": null,
-                  "delFlag": 0,
-                  "children": []
-                },
-                {
-                  "menuId": 24,
-                  "parentId": 5,
-                  "name": "删除",
-                  "url": null,
-                  "perms": "sys:menu:delete",
-                  "type": 2,
-                  "icon": null,
-                  "orderNum": 0,
-                  "createBy": null,
-                  "createTime": null,
-                  "lastUpdateBy": null,
-                  "lastUpdateTime": null,
-                  "delFlag": 0,
-                  "children": []
-                }
-              ]
+
             },
             {
               "menuId": 6,

@@ -5,11 +5,7 @@ import Login from '@/views/Login'
 import NotFound from '@/views/404'
 import Home from '@/views/Home'
 
-import User from '@/views/SysMng/User'
-import Menu from '@/views/SysMng/Menu'
-import Log from '@/views/SysMng/Log'
-import Role from '@/views/SysMng/Role'
-import Dept from '@/views/SysMng/Dept'
+
 
 Vue.use(Router)
 
@@ -18,6 +14,7 @@ Router.prototype.push = function push(to) {
   return VueRouterPush.call(this, to).catch(err => err);
 }
 
+// router-view 读取 component显示
 const router = new Router({
   routes: [
     {
@@ -25,17 +22,16 @@ const router = new Router({
       name: '首页',
       component: Home,
       children: [
-       
-        { path: '/user', component: User, name: '用户管理' },
-        { path: '/dept', component: Dept, name: '机构管理' },
-        { path: '/role', component: Role, name: '角色管理' },
-        { path: '/menu', component: Menu, name: '菜单管理' },
-        { path: '/log', component: Log, name: '日志管理' }
+        // { path: '/user', component: User, name: '用户管理' },
+        // { path: '/dept', component: Dept, name: '机构管理' },
+        // { path: '/role', component: Role, name: '角色管理' },
+        // { path: '/menu', component: Menu, name: '菜单管理' },
+        // { path: '/log', component: Log, name: '日志管理' }
       ]
     },
     {
       path: '/login',
-      name: 'Login',
+      name: '登录',
       component: Login
     }
     , {
