@@ -14,21 +14,23 @@ fnCreate(menu, true)
  * @param {*} mod 模块
  * @param {*} isOpen 是否开启?
  */
-function fnCreate (mod, isOpen = true) {
+function fnCreate(mod, isOpen = true) {
   if (isOpen) {
     for (var key in mod) {
-      ((res) => {
-        if (res.isOpen !== false) {
-          Mock.mock(new RegExp(res.url), res.type, (opts) => {
-            opts['data'] = opts.body ? JSON.parse(opts.body) : null
-            delete opts.body
-            console.log('\n')
-            console.log('%cmock拦截, 请求: ', 'color:blue', opts)
-            console.log('%cmock拦截, 响应: ', 'color:blue', res.data)
-            return res.data
-          })
-        }
-      })(mod[key]() || {})
+      const res = mod[key]() || {};
+      if (res.isOpen !== false) {
+        Mock.mock(new RegExp(res.url), res.type, (opts) => {
+          //优先匹配定义顺序在模块中靠前的对象
+          //opts:{code, msg, body} => opts:{code, msg, data}
+          opts['data'] = opts.body ? JSON.parse(opts.body) : null
+          delete opts.body
+
+          console.log('\n')
+          console.log('%cmock拦截, 请求: ', 'color:green', opts)
+          console.log('%cmock拦截, 响应: ', 'color:yellow', res.data)
+          return res.data
+        })
+      }
     }
   }
 }

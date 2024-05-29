@@ -8,38 +8,19 @@
     <!-- 导航菜单 -->
     <el-menu default-active="1-1" :class="collapse ? 'menu-bar-collapse-width' : 'menu-bar-width'" @open="handleopen"
       @close="handleclose" @select="handleselect" :collapse="collapse">
-      <el-submenu index="1">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span slot="title">{{ $t("sys.sysMng") }}</span>
-        </template>
-        <el-menu-item index="1-1" @click="$router.push('user')">{{ $t("sys.userMng") }}</el-menu-item>
-        <el-menu-item index="1-2" @click="$router.push('dept')">{{ $t("sys.deptMng") }}</el-menu-item>
-        <el-menu-item index="1-3" @click="$router.push('role')">{{ $t("sys.roleMng") }}</el-menu-item>
-        <el-menu-item index="1-4" @click="$router.push('menu')">{{ $t("sys.menuMng") }}</el-menu-item>
-        <el-menu-item index="1-5" @click="$router.push('log')">{{ $t("sys.logMng") }}</el-menu-item>
-      </el-submenu>
-      <el-menu-item index="2">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span slot="title">{{ $t("sys.sysMonitor") }}</span>
-        </template>
-      </el-menu-item>
-      <el-menu-item index="3" disabled>
-        <i class="el-icon-document"></i>
-        <span slot="title">{{ $t("sys.nav3") }}</span>
-      </el-menu-item>
-      <el-menu-item index="4">
-        <i class="el-icon-setting"></i>
-        <span slot="title">{{ $t("sys.nv4") }}</span>
-      </el-menu-item>
+      <MenuTree v-for="item in menutree" :key="item.menuId" :menu="item"></MenuTree>
+
     </el-menu>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
+import MenuTree from '@/components/MenuTree'
 export default {
+  components: {
+    MenuTree
+  },
   data() {
     return {
       logo: "",
@@ -54,15 +35,27 @@ export default {
     },
     handleselect(a, b) {
       console.log('handleselect');
+    },
+    findMenuTree() {
+      this.$api.menu.findMenuTree()
+        .then((res) => {
+          this.$store.commit('setMenuTree', res.data)
+        })
+        .catch((res) => {
+          alert(res)
+        })
+
     }
   },
   mounted() {
-    this.logo = require("@/assets/logo.png");
+    this.logo = require('@/assets/logo.png')
+    this.findMenuTree()
   },
   computed: {
     ...mapState({
       appName: state => state.app.appName,
-      collapse: state => state.app.collapse
+      collapse: state => state.app.collapse,
+      menutree: state => state.menu.menuTree
     })
   }
 };

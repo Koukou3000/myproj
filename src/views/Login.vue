@@ -43,7 +43,7 @@ export default {
   methods: {
     goLogin() {
       let userInfo = { account: this.loginForm.account, password: this.loginForm.password }
-      this.$api.login(JSON.stringify(userInfo))
+      this.$api.login.login(JSON.stringify(userInfo))
         .then((res) => {
           Cookies.set('token', res.data.token) // 放置token到Cookie
           sessionStorage.setItem('user', userInfo.account) // 保存用户到本地会话
