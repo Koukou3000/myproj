@@ -1,6 +1,7 @@
 // 导入所有接口
 import apis from './api'
 
+//js中使用封装的 @http/api即可；Vue中将api安装到原型上，所以是import @http/index
 const install = Vue => {
     if (install.installed)
         return;
