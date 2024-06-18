@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4590295 */
+  src: url('iconfont.woff2?t=1718725036058') format('woff2'),
+       url('iconfont.woff?t=1718725036058') format('woff'),
+       url('iconfont.ttf?t=1718725036058') format('truetype'),
+       url('iconfont.svg?t=1718725036058#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.LIMS-iconfile-copy:before {
+  content: "\e7bc";
+}
+
+.LIMS-iconsnippets:before {
+  content: "\e7bd";
+}
+
+.LIMS-iconalert:before {
+  content: "\e7c3";
+}
+
+.LIMS-iconedit:before {
+  content: "\e7e1";
+}
+
+[class^="LIMS-icon"], 
+[class*=" LIMS-icon"]
+{ 
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

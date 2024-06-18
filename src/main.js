@@ -15,6 +15,11 @@ Vue.use(api)
 import i18n from './i18n'
 import store from './store'
 Vue.config.productionTip = false
+
+
+
+import '@/assets/iconfont/iconfont.css'
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

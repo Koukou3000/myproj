@@ -1,0 +1,37 @@
+{
+  "id": "4590295",
+  "name": "myproj",
+  "font_family": "iconfont",
+  "css_prefix_text": "LIMS-icon",
+  "description": "试验室管理系统",
+  "glyphs": [
+    {
+      "icon_id": "4766481",
+      "name": "file-copy",
+      "font_class": "file-copy",
+      "unicode": "e7bc",
+      "unicode_decimal": 59324
+    },
+    {
+      "icon_id": "4766482",
+      "name": "snippets",
+      "font_class": "snippets",
+      "unicode": "e7bd",
+      "unicode_decimal": 59325
+    },
+    {
+      "icon_id": "4766675",
+      "name": "alert",
+      "font_class": "alert",
+      "unicode": "e7c3",
+      "unicode_decimal": 59331
+    },
+    {
+      "icon_id": "4766959",
+      "name": "edit",
+      "font_class": "edit",
+      "unicode": "e7e1",
+      "unicode_decimal": 59361
+    }
+  ]
+}
