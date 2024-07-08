@@ -3,6 +3,7 @@
     dept test IndexedDB
 
     <el-button @click="addALine">add a line</el-button>
+    <el-button @click="getALine">get a line</el-button>
   </div>
 </template>
 

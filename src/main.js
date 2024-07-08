@@ -4,12 +4,28 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+
+import {
+  Button, Input,
+  Form, FormItem,
+  Breadcrumb, BreadcrumbItem,
+  Menu, Submenu, MenuItem, MenuItemGroup
+} from 'element-ui'
+
+Vue.use(Form)
+Vue.use(FormItem)
+Vue.use(Button)
+Vue.use(Input)
+Vue.use(Breadcrumb)
+Vue.use(BreadcrumbItem)
+Vue.use(Menu)
+Vue.use(Submenu)
+Vue.use(MenuItem)
+Vue.use(MenuItemGroup)
+
 
 import api from './http'
 import mock from '@/mock'
-Vue.use(ElementUI)
 Vue.use(api)
 
 import i18n from './i18n'

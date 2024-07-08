@@ -10,6 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 const env = require('../config/prod.env')
 
@@ -28,6 +29,12 @@ const webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   plugins: [
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static', // 可以是 'server', 'static', 'json', 'disabled'
+      openAnalyzer: true, // 构建完成后是否自动打开分析报告
+      reportFilename: 'bundle-report.html', // 生成静态 HTML 文件的文件名
+      // 更多配置项参考 https://github.com/webpack-contrib/webpack-bundle-analyzer#options-for-plugin
+    }),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env
@@ -81,7 +88,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks (module) {
+      minChunks(module) {
         // any required modules inside node_modules are extracted to vendor
         return (
           module.resource &&
