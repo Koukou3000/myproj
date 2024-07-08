@@ -10,7 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 const env = require('../config/prod.env')
 
@@ -22,19 +22,19 @@ const webpackConfig = merge(baseWebpackConfig, {
       usePostCSS: true
     })
   },
-  devtool: config.build.productionSourceMap ? config.build.devtool : false,
+
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+    filename: utils.assetsPath('js/filename/[name].[chunkhash].js'),
+    chunkFilename: utils.assetsPath('js/chunkFilename/[name].[chunkhash].js')
   },
   plugins: [
-    // new BundleAnalyzerPlugin({
-    //   analyzerMode: 'static', // 可以是 'server', 'static', 'json', 'disabled'
-    //   openAnalyzer: true, // 构建完成后是否自动打开分析报告
-    //   reportFilename: 'bundle-report.html', // 生成静态 HTML 文件的文件名
-    //   // 更多配置项参考 https://github.com/webpack-contrib/webpack-bundle-analyzer#options-for-plugin
-    // }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static', // 可以是 'server', 'static', 'json', 'disabled'
+      openAnalyzer: true, // 构建完成后是否自动打开分析报告
+      reportFilename: 'bundle-report.html', // 生成静态 HTML 文件的文件名
+      // 更多配置项参考 https://github.com/webpack-contrib/webpack-bundle-analyzer#options-for-plugin
+    }),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env
@@ -142,11 +142,6 @@ if (config.build.productionGzip) {
       minRatio: 0.8
     })
   )
-}
-
-if (config.build.bundleAnalyzerReport) {
-  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-  webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
 
 module.exports = webpackConfig

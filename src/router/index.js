@@ -127,14 +127,16 @@ function addDynamicRoutes(menuList = [], routes = []) {
       else {
         try {
           // 根据菜单URL动态加载vue组件，这里要求vue组件在views中的文件名需要和url一致
-          // 如url="sys/user"，则组件路径应是"@/views/Sys/User.vue",否则组件加载不到
+          // 如url="sys/user"，则组件路径应是"@/views/Sys/User.vue",否则找不到组件
           let path = menuList[i].url.replace(/\/\w/g, match => {
-            return match.toUpperCase() // /sys/menu => /Sys/Menu
+            return match.toUpperCase() // 大写首字母： /sys/menu => /Sys/Menu
           })
-          path = path.replace(/^\/+/, '') // /Sys/Menu => Sys/Menu
-
+          path = path.replace(/^\/+/, '') // 去掉斜杠： /Sys/Menu => Sys/Menu
+          
           // route['component'] = (resolve) => require([`@/views/${path}`], resolve) // @/views/Sys/User
-          route['component'] = () => import(`@/views/${path}`) // @/views/Sys/User // 使用import 按需加载
+          // require换成import，按需加载
+          // [request]：webpack打包时实际解析的文件名
+          route['component'] = () => import(/*webpackChunkName: "[request]"*/`@/views/${path}`) 
         } catch (e) { }
       }
       routes.push(route)
@@ -148,6 +150,7 @@ function addDynamicRoutes(menuList = [], routes = []) {
   }
   return routes
 }
+
 
 
 
