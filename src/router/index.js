@@ -2,9 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // 固定路由
-import Login from '@/views/Login'
-import NotFound from '@/views/404'
-import Home from '@/views/Home'
+const Login = () => import('@/views/Login')
+const NotFound = () => import('@/views/404')
+const Home = () => import('@/views/Home')
 
 // 用于生成动态路由
 import api from '@/http/api' //js中使用封装的 @http/api即可；Vue中将api安装到原型上，所以是import @http/index
@@ -132,7 +132,9 @@ function addDynamicRoutes(menuList = [], routes = []) {
             return match.toUpperCase() // /sys/menu => /Sys/Menu
           })
           path = path.replace(/^\/+/, '') // /Sys/Menu => Sys/Menu
-          route['component'] = resolve => require([`@/views/${path}`], resolve) // @/views/Sys/User
+
+          // route['component'] = (resolve) => require([`@/views/${path}`], resolve) // @/views/Sys/User
+          route['component'] = () => import(`@/views/${path}`) // @/views/Sys/User // 使用import 按需加载
         } catch (e) { }
       }
       routes.push(route)
