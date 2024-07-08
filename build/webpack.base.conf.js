@@ -13,7 +13,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/main.js'
+    app: './src/main.js',
   },
   output: {
     path: config.build.assetsRoot,
@@ -68,7 +68,7 @@ module.exports = {
         test: /\.mjs$/,
         include: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: 'babel-loader'
         }
       },
     ]
