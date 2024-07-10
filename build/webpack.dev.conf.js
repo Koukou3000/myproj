@@ -21,6 +21,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   // devtool: config.dev.devtool,
   // these devServer options should be customized in /config/index.js
   devServer: {
+    headers: {
+      // 'Cache-Control': 'no-cache, public, max-age=60'  // no-cahce，每次246B检查更新
+      'Cache-Control': 'public, max-age=60'  // 不用检查的缓存
+    },
     clientLogLevel: 'warning',
     historyApiFallback: {
       rewrites: [
