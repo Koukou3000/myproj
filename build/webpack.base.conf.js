@@ -3,6 +3,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+// 拆分app.css => 按组件分
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 function resolve(dir) {
