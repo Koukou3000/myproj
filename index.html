@@ -10,5 +10,19 @@
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <div>js 下载前</div>
+    <div>css 下载前</div>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.compat.css">
+    <div>css 下载后</div>
+
+    <script async src="https://cdn.bootcdn.net/ajax/libs/vue/3.4.31/vue.cjs.js"></script>
+    <div>js 下载后</div>
   </body>
 </html>
+<script>
+  // 文档解析完毕，页面重新渲染。当页面引用的所有 js 同步代码执行完毕，触发 DOMContentLoaded 事件。
+  // html 文档中的图片资源，js 代码中有异步加载的 css、js 、图片资源都加载完毕之后，load 事件触发。
+      window.onload=function(){console.log(performance.timing.loadEventStart - performance.timing.fetchStart);}
+
+  
+</script>
