@@ -3,7 +3,7 @@
     dept test IndexedDB
 
     <el-button @click="addALine">add a line</el-button>
-    <!-- <el-button @click="getALine">get a line</el-button> -->
+    <el-button @click="getALine">get a line</el-button>
   </div>
 </template>
 
@@ -41,9 +41,26 @@ export default {
       request.onerror = e => {
         console.log('fail to add', e);
       };
+    },
+    getALine() {
+       // 确保数据库已成功打开
+       if (!this.db) {
+        console.error('Database is not initialized.');
+        return;
+      }
+      let store = this.db.transaction(['table1']).objectStore('table1')
+
+      let req = store.get(1720628462680)
+
+      req.onsuccess = (e) => {
+        console.log('success to get', e.target.result)
+      }
+      req.onerror = (e) => {
+        console.log('fail to get', e)
+      }
     }
   },
-  // lifeline
+  // Vue lifeline
   beforeCreate() {
     console.log('Dept component creating!')
     console.log('   dept beforeCreated.')

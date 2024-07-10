@@ -10,21 +10,20 @@
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    
     <!-- 白屏 -->
-    <div>1</div>
-    <div>2:css 下载会阻塞3</div>
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.compat.css">
-    
-
-    
-    <!-- 如果此时js已下载，运行完js后再渲染，1、4同时出现 -->
-    <!-- 如果js未下载，先渲染1的RENDER TREE -->
-    <div>3:js 下载会阻塞4</div> 
-    <script src="./src/assets/test.js"></script>
-
-    <div>4</div>
-    <div>如果js已下载，1 | 4同时出现（需要给响应头添加缓存策略）</div>
-    <div>如果js未下载，先出现1，再出现4</div>
+    <!-- <div>
+      <div>1</div>
+      <div>2:css 下载会阻塞3</div>
+      <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.compat.css"> -->
+      <!-- 如果此时js已下载，运行完js后再渲染，1、4同时出现 -->
+      <!-- 如果js未下载，先渲染1的RENDER TREE -->
+      <!-- <div>3:js 下载会阻塞4</div> 
+      <script src="./src/assets/test.js"></script>
+      <div>4</div>
+      <div>如果js已下载，1 | 4同时出现（需要给响应头添加缓存策略）</div>
+      <div>如果js未下载，先出现1，再出现4</div>
+    </div> -->
   </body>
 </html>
 <script>
